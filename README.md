@@ -17,5 +17,5 @@ pub enum HTTPVersion {
 }
 ```
 
-Introduces new enum grammar under the `#[StringEnum]` macro, which implements string serialization and deserialization traits. 
-When compiling with the `nom` feature, additional parser methods are provided.
+Introduces new enum grammar under the `#[StringEnum]` macro, which implements string serialization and deserialization methods. 
+<!-- When compiling with the `nom` feature, additional parser methods are provided. -->
