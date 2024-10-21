@@ -13,46 +13,48 @@ pub enum Method {
     /// resource. Requests using GET should only retrieve data and
     /// should not contain a request content.
     #[default]
-    GET = "GET",
+    GET,
 
     /// The HEAD method asks for a response identical to a GET
     /// request, but without a response body.
-    HEAD = "HEAD",
+    HEAD,
 
     /// The POST method submits an entity to the specified resource,
     /// often causing a change in state or side effects on the server.
-    POST = "POST",
+    POST,
 
     /// The PUT method replaces all current representations of the
     /// target resource with the request content.
-    PUT = "PUT",
+    PUT,
 
     /// The DELETE method deletes the specified resource.
-    DELETE = "DELETE",
+    DELETE,
 
     /// The CONNECT method establishes a tunnel to the server
     /// identified by the target resource.
-    CONNECT = "CONNECT",
+    CONNECT,
 
     /// The OPTIONS method describes the communication options for
     /// the target resource.
-    OPTIONS = "OPTIONS",
+    OPTIONS,
 
     /// The TRACE method performs a message loop-back test along the
     /// path to the target resource.
-    TRACE = "TRACE",
+    TRACE,
 
     /// The PATCH method applies partial modifications to a resource.
-    PATCH = "PATCH",
+    PATCH,
 }
 
 #[test]
 fn methods() {
     use std::str::FromStr;
 
+    assert_eq!(Method::MAX_VARIANT_LEN, "CONNECT".len());
+
     assert_eq!(Method::GET.to_string(), "GET".to_string());
     assert_eq!(Method::from_str("HEAD").unwrap(), Method::HEAD);
 
-    // This test
+    // This test is for nom.
     assert_eq!(Method::combinator()("GET / HTTP/1.1"), Ok((" / HTTP/1.1", Method::GET)));
 }

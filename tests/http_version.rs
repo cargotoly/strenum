@@ -17,5 +17,6 @@ pub enum Version {
 
 #[test]
 fn version() {
+    assert_eq!(Version::MAX_VARIANT_LEN, 8);
     assert_eq!(Version::Http1_1.str_len(), 8);
 }
