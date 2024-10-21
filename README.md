@@ -1,4 +1,4 @@
-# Cluster Macro
+# Typed Enum
 
 ### String Enum
 
