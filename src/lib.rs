@@ -64,7 +64,7 @@ pub fn StringEnum(_attr: TokenStream, input: TokenStream) -> TokenStream {
         .iter()
         .map(|(key, value)| {
             let len = value.len();
-            quote![_ if input.starts_with(#value) => Some((&input[#len..], Self::#key)),]
+            quote![_ if input.starts_with(#value) => Ok((&input[#len..], Self::#key)),]
         })
         .collect::<Vec<_>>();
 
@@ -126,11 +126,11 @@ pub fn StringEnum(_attr: TokenStream, input: TokenStream) -> TokenStream {
 
             /// Returns a nom-style combinator for parsing the
             /// enum from a string input.
-            pub fn combinator() -> impl Fn(&str) -> Option<(&str, Self)> {
+            pub fn combinator() -> impl Fn(&str) -> Result<(&str, Self), ()> {
                 move |input: &str| {
                     match true {
                         #(#starts_with_arms)*
-                        _ => None,
+                        _ => Err(()),
                     }
                 }
             }

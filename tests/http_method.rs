@@ -52,4 +52,7 @@ fn methods() {
 
     assert_eq!(Method::GET.to_string(), "GET".to_string());
     assert_eq!(Method::from_str("HEAD").unwrap(), Method::HEAD);
+
+    // This test
+    assert_eq!(Method::combinator()("GET / HTTP/1.1"), Ok((" / HTTP/1.1", Method::GET)));
 }
