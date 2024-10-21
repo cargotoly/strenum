@@ -14,4 +14,3 @@ pub enum Version {
     Http2 = "HTTP/2",
     Http3 = "HTTP/3",
 }
-

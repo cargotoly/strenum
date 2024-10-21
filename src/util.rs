@@ -10,14 +10,16 @@ pub fn preprocess(item_enum: &mut ItemEnum) -> Vec<(Ident, String)> {
             let key = field.ident.clone();
 
             let value = match &field.discriminant {
-                Some((_, expr)) => match expr {
-                    Expr::Lit(elit) => match &elit.lit {
-                        Lit::Str(lit_str) => lit_str.value(),
-                        _ => key.to_string(),
-                    },
+                Some((_, Expr::Lit(elit))) => match &elit.lit {
+                    Lit::Str(lit_str) => lit_str.value(),
                     _ => key.to_string(),
                 },
-                None => key.to_string(),
+                // Some((eq, expr)) => syn::Error::new(expr.span(), "expected a string literal").into_compile_error(),
+                //     .to_compile_error()
+                //     .spanned(eq.span())
+                //     .to_compile_error(),
+                // None => key.to_string(),
+                _ => key.to_string(),
             };
 
             field.discriminant = None;
