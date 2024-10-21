@@ -4,7 +4,7 @@
 use map_enum::StringEnum;
 
 /// This enum represents the versions of the HTTP protocol.
-#[derive(PartialEq, Eq, Clone, Default)]
+#[derive(Clone, Default)]
 #[StringEnum]
 pub enum Version {
     Http0_9 = "HTTP/0.9",
@@ -13,4 +13,9 @@ pub enum Version {
     Http1_1 = "HTTP/1.1",
     Http2 = "HTTP/2",
     Http3 = "HTTP/3",
+}
+
+#[test]
+fn version() {
+    assert_eq!(Version::Http1_1.str_len(), 8);
 }

@@ -2,7 +2,7 @@
 
 use syn::{Expr, Ident, ItemEnum, Lit};
 
-pub fn preprocess(item_enum: &mut ItemEnum) -> Vec<(Ident, String)> {
+pub fn preprocess_string_enum(item_enum: &mut ItemEnum) -> Vec<(Ident, String)> {
     item_enum
         .variants
         .iter_mut()

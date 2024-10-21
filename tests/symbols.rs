@@ -5,7 +5,7 @@
 use map_enum::StringEnum;
 
 // TODO
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, Clone)]
 #[StringEnum]
 pub enum Symbol {
     // (1) Assign

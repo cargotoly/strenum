@@ -6,7 +6,7 @@ use map_enum::StringEnum;
 /// This enum represents the methods of the HTTP protocol. The
 /// methods are used to indicate the desired action to be performed.
 /// [See Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
-#[derive(Debug, PartialEq, Eq, Clone, Default)]
+#[derive(Debug, Clone, Default)]
 #[StringEnum]
 pub enum Method {
     /// The GET method requests a representation of the specified

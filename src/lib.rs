@@ -14,7 +14,7 @@ use syn::{parse_macro_input, ItemEnum};
 /// use map_enum::*;
 /// use std::str::FromStr;
 ///
-/// #[derive(Debug, PartialEq)]
+/// #[derive(Debug)]
 /// #[StringEnum]
 /// pub enum Method {
 ///     Get = "Hi",
@@ -45,7 +45,7 @@ pub fn StringEnum(_attr: TokenStream, input: TokenStream) -> TokenStream {
     // A list of variants. We expect the length of the enum
     // members to be in ascending order, therefore for parsing,
     // the list has to be reversed to descending order.
-    let mut variants = util::preprocess(&mut item_enum);
+    let mut variants = util::preprocess_string_enum(&mut item_enum);
     variants.reverse();
 
     // The name of the enum. This is used to reference the enum
@@ -114,6 +114,7 @@ pub fn StringEnum(_attr: TokenStream, input: TokenStream) -> TokenStream {
 
     quote! {
         #[non_exhaustive]
+        #[derive(Eq, PartialEq)]
         #item_enum
 
         impl #name {
@@ -135,10 +136,20 @@ pub fn StringEnum(_attr: TokenStream, input: TokenStream) -> TokenStream {
             }
 
             /// Returns the length of the string representation.
-            pub fn len(&self) -> usize {
+            pub fn str_len(&self) -> usize {
                 self.to_string().len()
             }
         }
+
+        // impl<T: AsRef<&str>> std::cmp::PartialEq<T> for #name {
+        //     fn eq(&self, other: &T) -> bool {
+        //         use std::str::FromStr;
+        //         match Self::from_str(other.as_ref()) {
+        //             Ok(variant) => self == &variant,
+        //             Err(_) => false
+        //         }
+        //     }
+        // }
 
         impl std::str::FromStr for #name {
             type Err = ();
