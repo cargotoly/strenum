@@ -1,8 +1,8 @@
 [package]
-name = "string-enum"
+name = "map-enum"
 version = "0.1.0"
 edition = "2021"
-description = "This package introduces a procedural macro for the crate 'casespaetzle'"
+description = "This package introduces a procedural macro for generating typed enums."
 authors = ["Anatoly Weinstein <anatoly.wein@gmail.com>"]
 license = "Apache-2.0"
 

@@ -1,7 +1,7 @@
 //! This is an example of an HTTP method enum generated with
 //! the `StringEnum` macro.
 
-use strenum::StringEnum;
+use map_enum::StringEnum;
 
 /// This enum represents the methods of the HTTP protocol. The
 /// methods are used to indicate the desired action to be performed.

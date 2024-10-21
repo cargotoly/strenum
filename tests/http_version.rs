@@ -1,7 +1,7 @@
 //! This is an example of an HTTP version enum generated with
 //! the `StringEnum` macro.
 
-use strenum::StringEnum;
+use map_enum::StringEnum;
 
 /// This enum represents the versions of the HTTP protocol.
 #[derive(PartialEq, Eq, Clone, Default)]

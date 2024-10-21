@@ -11,7 +11,7 @@ use syn::{parse_macro_input, ItemEnum};
 /// members.
 ///
 /// ```
-/// use strenum::*;
+/// use map_enum::*;
 /// use std::str::FromStr;
 ///
 /// #[derive(Debug, PartialEq)]

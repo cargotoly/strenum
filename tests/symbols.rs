@@ -2,7 +2,7 @@
 //! represent all the symbols in an example programming language.
 //! It  was created with the #[StringEnum] macro.
 
-use strenum::StringEnum;
+use map_enum::StringEnum;
 
 // TODO
 #[derive(Debug, PartialEq, Eq, Clone)]
