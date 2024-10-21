@@ -1,6 +1,6 @@
 [package]
 name = "map-enum"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "This package introduces a procedural macro for generating typed enums."
 authors = ["Anatoly Weinstein <anatoly.wein@gmail.com>"]
