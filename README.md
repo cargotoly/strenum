@@ -3,7 +3,7 @@
 ### String Enum
 
 ```rs
-use macros::*;
+use map_enum::*;
 
 #[derive(Default)]
 #[StringEnum]
