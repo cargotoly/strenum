@@ -2,6 +2,14 @@
 name = "strenum"
 version = "0.1.0"
 edition = "2021"
+description = "This package introduces a procedural macro for the crate 'casespaetzle'"
+authors = ["Anatoly Weinstein <anatoly.wein@gmail.com>"]
+license = "Apache-2.0"
+
+homepage = "https://github.com/cargotoly/strenum"
+repository = "https://github.com/cargotoly/strenum"
+readme = "README.md"
+keywords = ["util", "enum", "string"]
 
 [lib]
 proc-macro = true
